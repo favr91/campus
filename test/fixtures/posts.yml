@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contenido: MyText
+  tipo_post: MyString
+  me_gusta: 1
+  user: one
+  channel: one
+
+two:
+  contenido: MyText
+  tipo_post: MyString
+  me_gusta: 1
+  user: two
+  channel: two

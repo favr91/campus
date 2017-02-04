@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :posts
+  resources :channels
+  resources :followers
+  resources :followings
+  resources :areas
   devise_for :users
   get 'welcome/index'
 
