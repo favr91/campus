@@ -25,6 +25,8 @@ gem 'devise'
 # Gema para implementar bootstrap
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
+gem 'autoprefixer-rails' 
+gem 'bootswatch-rails'
 
 
 # Use jquery as the JavaScript library
