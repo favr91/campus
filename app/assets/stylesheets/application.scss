@@ -30,6 +30,7 @@ body { padding-top: 60px; }
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
 
-html body #bgimage {
-    background-image: url(image_path('campuslogo2.png'));
+textarea {
+    resize: none;
+    overflow-y: scroll;
 }

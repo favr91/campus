@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'autoprefixer-rails' 
 gem 'bootswatch-rails'
+gem 'faker'
 
 
 # Use jquery as the JavaScript library
