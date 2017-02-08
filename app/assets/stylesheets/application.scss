@@ -23,10 +23,13 @@
 
 // Then bootstrap itself
 @import "bootstrap";
+@import "font-awesome";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
-
+body { 
+	padding-top: 60px;;
+ }
+ 
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
 
@@ -34,3 +37,8 @@ textarea {
     resize: none;
     overflow-y: scroll;
 }
+
+
+ 
+
+

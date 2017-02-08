@@ -3,31 +3,25 @@
   <head>
     <title>Campus</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
   </head>
 
   <body>
-  <div class="container">  
+  
+ <%= render "partials/navbar"%> 
+
+  <div class="container" style="margin-top: 60px;">  
   <% flash.each do |key, value| %>
     <div class="alert alert-dismissible alert-danger alert-<%= key %>">
      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <%= value %>
     </div>
-  <% end %>
-  <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+  <% end %>  
       <%= yield %>
   </div>
-<p>gaviota</p>
+
      
    </div>
   </body>

@@ -28,6 +28,7 @@ gem 'devise-bootstrap-views'
 gem 'autoprefixer-rails' 
 gem 'bootswatch-rails'
 gem 'faker'
+gem 'font-awesome-rails'
 
 
 # Use jquery as the JavaScript library

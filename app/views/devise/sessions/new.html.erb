@@ -1,10 +1,11 @@
-<div class="col-sm-4 col-sm-offset-4">
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+  <div class="panel panel-default devise-bs">
+    <div class="panel-heading">
     <h4><%= t('.inicia_sesion', default: 'Inicia Sesion') %></h4>
   </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
@@ -22,7 +23,14 @@
       <% end %>
       <%= f.submit  t('.iniciar_sesion', default: 'Iniciar Sesion'), class: 'btn btn-primary' %>
     <% end %>
+    </div>
+
   </div>
+
+  <div style="text-align: center;">
+    <%= render 'devise/shared/links' %>
+  </div>
+  
+
 </div>
-<%= render 'devise/shared/links' %>
 </div>
