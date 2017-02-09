@@ -1,54 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="especial">Areas</h1>
+<h1>Areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
 
-<div class="row">
-   
-    <div class=" col-md-3">
-    <img alt="image" class="img-thumbnail imag-mediana" src="https://static.iris.net.co/dinero/upload/images/2015/10/6/214409_114326_9.jpg">
-      <div class="caption">
-      <h3><a href="#">Medicina</a></h3>
-      </div>
-    </div>
-    
-    
-    <div class=" col-md-3">
-      <img alt="image" class="img-thumbnail imag-mediana" src="http://www.usm.cl/assets/img/carreras/fotos/concepcion-tecnico-universitario-en-informatica.w700.jpg" alt="photo">
-      <div class="caption">
-      <h3><a href="#">Informatica</a></h3>
-      </div>
-    </div>
+  <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= area.nombre %></td>
+        <td><%= area.descripcion %></td>
+        <td><%= link_to 'Show', area %></td>
+        <td><%= link_to 'Edit', edit_area_path(area) %></td>
+        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-   <div class=" col-md-3">
-      <img alt="image" class="img-thumbnail imag-mediana" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxCtggvjzEFDjgUUxQg_ZzYh1_f44hWUTeytc6Jcx1_FFVaAfZCg">
-      <div class="caption">
-      <h3><a href="#">Administracion</a></h3>
-      </div>
-    </div>
-    
+<br>
 
-    <div class=" col-md-3">
-      <img alt="image" class="img-thumbnail imag-mediana " src="https://i.ytimg.com/vi/zAZXZvTueDo/maxresdefault.jpg" alt="photo">
-      <div class="caption">
-      <h3><a href="#">Cocina</a></h3>
-      </div>
-    </div>
-
-    <div class=" col-md-3">
-      <img alt="image" class="img-thumbnail imag-mediana" src="http://blog-fitness-house.com/wp-content/uploads/2013/11/salud-bienestar.jpg">
-      <div class="caption">
-      <h3><a href="#">Salud y Bienestar</a></h3>
-      </div>
-    </div
-
-<div class=" col-md-3">
-      <img alt="image" class="img-thumbnail imag-small" src="https://http2.mlstatic.com/contabilidad-plantillas-en-excel-para-tu-empresa-trabajo-D_NQ_NP_564221-MLV20727647939_052016-F.jpg">
-      <div class="caption">
-      <h3><a href="#">Contabilidad</a></h3>
-      </div>
-    </div
-
-
-
-</div> 
+<%= link_to 'New Area', new_area_path %>
