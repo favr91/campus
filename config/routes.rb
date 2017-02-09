@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'personas/index'
+
   resources :comments
   resources :posts
   resources :channels
