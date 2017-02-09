@@ -9,6 +9,7 @@
   <body>
  <%= render "partials/navbar"%> 
  
+ <%= render "partials/sidebar"%> 
   <div class="container" style="margin-top: 60px;">
   <% flash.each do |key, value| %>
     <div class="alert alert-dismissible alert-danger alert-<%= key %>">
@@ -16,6 +17,7 @@
       <%= value %>
     </div>
   <% end %>  
+   
       <%= yield %>
   </div>
    </div>
