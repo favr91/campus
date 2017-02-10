@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'personas/index'
-
+  
   resources :comments
   resources :posts
   resources :channels
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   resources :areas
   devise_for :users
   get 'welcome/index'
+  get 'personas/index'
 
 
 
