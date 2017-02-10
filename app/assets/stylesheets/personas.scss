@@ -1,3 +1,45 @@
+
+.nav-pills > li.actives > a:hover{
+  color: #ffffff;
+  background-color: #128f76;
+  border-color: #11866f;
+}
+
+.contact-box {
+  background-color: #ffffff;
+  border: 1px solid #e7eaec;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.contact-box > a {
+  color: inherit;
+}
+.contact-box.center-version {
+  border: 1px solid #e7eaec;
+  padding: 0;
+}
+.contact-box.center-version > a {
+  display: block;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+.contact-box.center-version > a img {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.contact-box.center-version address {
+  margin-bottom: 0;
+}
+.contact-box .contact-box-footer {
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #e7eaec;
+  padding: 15px 20px;
+}
+
 // Place all the styles related to the personas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
