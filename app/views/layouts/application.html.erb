@@ -33,9 +33,11 @@
               <% if user_signed_in? %>
                 <%= render "partials/sidebar" %>
                   <% end %>
-            </div>
-            
+            </div>            
           </div>
+          <% if !user_signed_in? %>
+            <%= render "partials/footer"%>
+          <% end %>
 </body>
 
 </html>
