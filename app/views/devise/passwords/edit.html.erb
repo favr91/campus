@@ -1,7 +1,7 @@
 <%= bootstrap_devise_error_messages! %>
   
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
-          <div class="panel panel-default devise-bs tarjeta">
+          <div class="panel panel-default devise-bs">
         <div class="panel-heading">
           <h4>
             <%= t('.change_your_password', default: 'Change your password') %>
@@ -18,7 +18,7 @@
                 <%= f.label :password_confirmation, t('.confirm_new_password', default: 'Confirm new password') %>
                   <%= f.password_field :password_confirmation, class: 'form-control'  %>
               </div>
-              <%= f.submit t('.change_my_password', default: 'Change my password'), class: 'btn btn-primary' %>
+              <%= f.submit t('.change_my_password', default: 'Change my password'), class: 'btn btn-success btn-block' %>
                 <% end %>
         </div>
               <%= render 'devise/shared/links' %>

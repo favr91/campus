@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
 </head>
 
-<body>
+<body <% if user_signed_in? %> class="blanco" <% end %>>
   <!-- Mensajes Emergentes -->
   <% if notice %>
     <div id="notice_wrapper">
@@ -35,9 +35,7 @@
                   <% end %>
             </div>            
           </div>
-          <% if !user_signed_in? %>
-            <%= render "partials/footer"%>
-          <% end %>
+          
 </body>
 
 </html>
