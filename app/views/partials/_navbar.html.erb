@@ -1,5 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  
+<nav class="navbar navbar-default navbar-fixed-top">  
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand logo-estilo" href="#"><i class="fa fa-university" aria-hidden="true"></i>CAMPUS</a>
+       <a class="navbar-brand logo-estilo" href="/"><i class="fa fa-university" aria-hidden="true"></i>CAMPUS</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,9 +35,11 @@
           </li>
         <% else %>
         <li>  
-        <%= link_to fa_icon("Sobrenosotros", text: "Sobre Nosotros", class: "fa-info-circle"), new_user_session_path %>          
+          <% unless current_page?(about_index_path) %>
+            <%= link_to fa_icon("Sobrenosotros", text: "Sobre Nosotros", class: "fa-info-circle"), about_index_path %>          
+          <% end %>
         </li>        
-      <% end %>     
+        <% end %>     
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
