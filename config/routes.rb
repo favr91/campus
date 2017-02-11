@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'perfil/index'
+
   resources :comments
   resources :posts
   resources :channels
