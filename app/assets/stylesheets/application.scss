@@ -1,36 +1,13 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_bootstrap_views 
- *= require_tree .
- *= require_self
- */
-
-//Import bootstrap-sprockets
 @import "bootstrap-sprockets";
-
-// Import flatly variables
 @import "bootswatch/flatly/variables";
-
-// Then bootstrap itself
 @import "bootstrap";
+@import "devise_bootstrap_views";
 @import "font-awesome";
-
-
 // Bootstrap body padding for fixed navbar
-body { 
-	padding-top: 60px;;
- }
- 
+body {
+    padding-top: 60px;    
+}
+
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
 
@@ -39,8 +16,58 @@ textarea {
     overflow-y: scroll;
 }
 
+body,
+html,
+.row-offcanvas {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    background-image: url('https://d13yacurqjgara.cloudfront.net/users/241278/screenshots/2073414/artboard_2.png');
+}
+.tarjeta{
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.links-inicio {
+    text-align: center;
+    a{
+    color: #2c3e50;
+    font-weight: 700;
+    }
+
+}
+  
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+}
+
+.main {
+    padding: 20px;
+}
+
+.nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+
 /* --------------------------------------SideBar */
-.side-nav {
+
+
+/* .side-nav {
         position: fixed;
         top: 51px;
         left: 225px;
@@ -76,21 +103,7 @@ textarea {
   transition-property: color, background-color;
     }
 
-    a:hover{
-         display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  overflow: hidden;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: color, background-color;
-  transition-property: color, background-color;
-    }
-
-
-.side-nav>li>ul {
+    .side-nav>li>ul {
     padding: 0;
 }
 
@@ -105,29 +118,94 @@ textarea {
     color: #fff;
 }
 
- 
+hr{
+    background-color: black;
+}
+*/
+
+a:hover {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    overflow: hidden;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+}
+
+
 /* --------------------------------------Barra de busqueda*/
 
-.barra-busqueda{
-      background-color: rgba(255,255,255,.15);
-      border: none; 
-      padding: 10px 45px;
-      color: white;
+.barra-busqueda {
+    background-color: rgba(255, 255, 255, .15);
+    border: none;
+    padding: 10px 45px;
+    color: white;
 }
 
 .logo-estilo {
     font-family: 'Cinzel', serif;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
 
-/* Sidebar branch*/
-
-
-
- 
+input:focus:-moz-placeholder {
+    color: transparent;
+}
 
 
+/* FF 4-18 */
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+
+/* FF 19+ */
+
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+
+/* IE 10+ */
+
+
+/* -------------------------------------------Mensajes de alerta*/
+
+#alert_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+    background: rgba(231, 76, 60, 0.85);
+    .alert {
+        padding: 2.1rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.25rem;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+}
+
+#notice_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+    background: rgba(52, 152, 219, 0.85);
+    .notice {
+        padding: 2.1rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.25rem;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+}
