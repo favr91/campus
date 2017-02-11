@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'about/index'
+
   resources :comments
   resources :posts
   resources :channels
