@@ -20,7 +20,14 @@
      <%= link_to posts_path do %>
       <i class="fa fa-users" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Personas </span>
      <% end %>
-    </li>    
+    </li> 
+    <% if current_user.email == 'pm@gmail.com' %>
+    <li class="<%= 'active' if params[:controller] == 'areas' %>">
+     <%= link_to areas_path do %>
+      <i class="fa fa-book" aria-hidden="true"></i> <span class="collapse in hidden-xs" style="margin-left:10px;">Áreas de conocimiento</span>
+     <% end %>
+    </li>
+    <% end %>     
   </ul>
   <hr>
   <ul class="nav nav-sidebar">
