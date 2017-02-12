@@ -1,7 +1,7 @@
 <%= bootstrap_devise_error_messages! %>
   
     <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-      <div class="panel panel-default devise-bs tarjeta">
+      <div class="panel panel-default devise-bs">
         <div class="panel-heading">
           <h4>
             <%= t('.olvidaste_tu_contraseña', default: '¿Olvidaste tu contraseña?') %>
@@ -13,7 +13,7 @@
               <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, class: 'form-control' %>
             </div>
-            <%= f.submit t('.enviar__instrucciones_de_recuperación', default: 'Enviar instrucciones de recuperación'), class: 'btn btn-primary' %>
+            <%= f.submit t('.enviar__instrucciones_de_recuperación', default: 'Enviar instrucciones de recuperación'), class: 'btn btn-success btn-block' %>
               <% end %>
         </div>
       </div>
