@@ -11,17 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
+<div class="container">
+<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
 
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion %>
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+  <% if current_page?(new_area_path) %>
+    <h4>Registro de Área</h4>
+   <% elsif current_page?(edit_area_path) %>
+    <h4>Editar de Área</h4>
+   <% end %>
   </div>
+  <div class="panel-body">
+   
+      <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre, autofocus: true, class: 'form-control' %>        
+      </div>
+       
+      <div class="form-group">
+        <%= f.label :descripción %>        
+        <%= f.text_area :descripcion, :rows => 4, class: 'form-control' %>       
+      </div>
+     
+      
+      <div class="actions">
+       <% if current_page?(new_area_path) %>
+    <%= f.submit  t('.Registrar', default: 'Registrar'), class: 'btn btn-success btn-block'%>
+     <% elsif current_page?(edit_area_path) %>
+     <%= f.submit  t('.guardar_cambios', default: 'Guardar Cambios'), class: 'btn btn-success btn-block'%>
+     <% end %>
+  </div>
+ <% end %>
+</form>  </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+</div>

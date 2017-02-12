@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'perfil/index'
   get 'about/index'
+
 
   resources :comments
   resources :posts
