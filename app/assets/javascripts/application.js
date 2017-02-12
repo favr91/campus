@@ -15,3 +15,25 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+     $(document).ready(function(){
+        setTimeout(function(){
+          $('#notice_wrapper').fadeOut("slow", function(){
+            $(this).remove();
+          })
+        }, 4250);
+      });
+
+      $(document).ready(function(){
+        setTimeout(function(){
+          $('#alert_wrapper').fadeOut("slow", function(){
+            $(this).remove();
+          })
+        }, 4250);
+      });
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});

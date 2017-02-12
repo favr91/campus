@@ -1,0 +1,41 @@
+<!-- /sidebar -->
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li>
+     <%= link_to posts_path do %>
+      <i class="fa fa-home" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Inicio </span>
+     <% end %>
+    </li>
+    <li>
+     <%= link_to posts_path do %>
+      <i class="fa fa-user" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Perfil </span>
+     <% end %>
+    </li>
+    <li>
+     <%= link_to posts_path do %>
+      <i class="fa fa-th-large" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Canales</span>
+     <% end %>
+    </li>
+    <li>
+     <%= link_to posts_path do %>
+      <i class="fa fa-users" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Personas </span>
+     <% end %>
+    </li>    
+  </ul>
+  <hr>
+  <ul class="nav nav-sidebar">
+      <li>
+      <%= link_to posts_path do %>
+        <i class="fa fa-life-ring" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Ayuda</span> 
+      <% end %>
+      </li>
+      <li>
+      <%= link_to about_index_path do %>
+         <i class="fa fa-info-circle" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Sobre Nosotros</span>    
+      <% end %>
+      </li>
+      
+    </ul>
+</div>
+<!-- /sidebar -->
+
