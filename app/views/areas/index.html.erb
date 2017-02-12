@@ -1,17 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<h1 class="especial">Areas</h1>
+<h1>Areas</h1>
 
 
-<div class="row">
-   
-    <div class=" col-md-3">
-    <img alt="image" class="img-thumbnail imag-mediana" src="https://static.iris.net.co/dinero/upload/images/2015/10/6/214409_114326_9.jpg">
-      <div class="caption">
-      <h3><a href="#">Medicina</a></h3>
-      </div>
-    </div>
+ <div class="panel-body">
+ 
+ <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <tr class="success">
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+     
+    </tr>
     
+<<<<<<< HEAD
     
     <div class=" col-md-3">
       <img alt="image" class="img-thumbnail imag-mediana" src="http://www.usm.cl/assets/img/carreras/fotos/concepcion-tecnico-universitario-en-informatica.w700.jpg" alt="photo">
@@ -52,3 +55,24 @@
 
 
 </div> 
+=======
+  </thead>
+  
+
+  </div>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= area.nombre %></td>
+        <td><%= area.descripcion %></td>
+        <td><%= link_to 'Show', area %></td>
+        <td><%= link_to 'Edit', edit_area_path(area) %></td>
+        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Area', new_area_path %>
+>>>>>>> f3b475e5e0ebd7d3f1073971caa67e493406e319
