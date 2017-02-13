@@ -5,7 +5,7 @@
 @import "font-awesome";
 // Bootstrap body padding for fixed navbar
 body {
-    padding-top: 60px;
+    padding-top: 25px;
 }
 
 // And finally bootswatch style itself
@@ -81,15 +81,21 @@ body.blanco {
     a{
         color: #fff;
     }
+
     li:hover a{
         background-color: #18bc9c;
         color: #fff;
     }    
 }
 
-hr{
-    border-top: 1px solid #18bc9c;
+.btn-success {
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
 }
+
+
 
 .collapse.in {
     display: inline;

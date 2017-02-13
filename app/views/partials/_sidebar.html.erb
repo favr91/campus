@@ -6,8 +6,8 @@
       <i class="fa fa-home" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Inicio </span>
      <% end %>
     </li>
-    <li class="<%= 'active' if params[:controller] == 'posts' %>">
-     <%= link_to posts_path do %>
+    <li class="<%= 'active' if params[:controller] == 'perfil' %>">
+     <%= link_to perfil_index_path do %>
       <i class="fa fa-user" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Perfil </span>
      <% end %>
     </li>

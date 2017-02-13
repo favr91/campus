@@ -12,7 +12,7 @@
         <meta name="theme-color" content="#212f3d"> 
 </head>
 
-<body <% if user_signed_in? && !current_page?(controller: 'about', action: 'index') %> class="blanco" <% end %>>
+<body <% if user_signed_in? && !current_page?(controller: 'about', action: 'index') %> class="blanco" <% end %> >
   <!-- Mensajes Emergentes -->
   <% if notice %>
     <div id="notice_wrapper">
