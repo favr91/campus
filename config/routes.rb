@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'chanel/index'
   get 'perfil/index'
   get 'about/index'
 
