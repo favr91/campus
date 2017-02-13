@@ -1,0 +1,43 @@
+<!-- /sidebar -->
+<div class="col-xs-1 col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="<%= 'active' if params[:controller] == 'welcome' %>">
+     <%= link_to welcome_index_path do %>
+      <i class="fa fa-home" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Timeline </span>
+     <% end %>
+    </li>
+    <li class="<%= 'active' if params[:controller] == 'perfil' %>">
+     <%= link_to perfil_index_path do %>
+      <i class="fa fa-user" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Perfil </span>
+     <% end %>
+    </li>
+    <li class="<%= 'active' if params[:controller] == 'posts' %>">
+     <%= link_to posts_path do %>
+      <i class="fa fa-th-large" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Canales</span>
+     <% end %>
+    </li>   
+    <% if current_user.email == 'pm@gmail.com' %>
+      <li class="<%= 'active' if params[:controller] == 'areas' %>">
+          <%= link_to areas_path do %>
+            <i class="fa fa-book" aria-hidden="true"></i> <span class="collapse in hidden-xs" style="margin-left:10px;">Áreas de conocimiento</span>
+          <% end %>
+      </li>
+    <% end %>     
+  </ul>
+  <hr>
+  <ul class="nav nav-sidebar">
+      <li class="<%= 'active' if params[:controller] == 'posts' %>">
+      <%= link_to posts_path do %>
+        <i class="fa fa-life-ring" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Ayuda</span> 
+      <% end %>
+      </li>
+      <li>
+      <%= link_to about_index_path do %>
+         <i class="fa fa-info-circle" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Sobre Nosotros</span>    
+      <% end %>
+      </li>
+      
+    </ul>
+</div>
+<!-- /sidebar -->
+

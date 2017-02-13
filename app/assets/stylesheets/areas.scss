@@ -1,3 +1,25 @@
 // Place all the styles related to the Areas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.thumbnail-variant-1 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.especial
+{
+    color:#18bc9c;
+    font-size: 50px;
+    
+}
+
+.imag-mediana
+{
+  width: 800px; height: 800px;
+}
+
+.imag-small
+{
+  width: 220px; height: 400px;
+}

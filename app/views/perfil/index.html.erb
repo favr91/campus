@@ -1,15 +1,52 @@
-
-        <div class="col-xs-11 col-sm-9 col-md-8 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
+        <div class="col-xs-11 col-sm-3 col-md-3 col-xs-offset-1 col-sm-offset-3 col-md-offset-2 ">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div align="center">
+                            <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                        </div>
+                        <div class="media-body">
+                            <hr>
+                            <h3><strong>Bio</strong></h3>
+                            <p><%= current_user.descripcion %></p>
+                            <hr>
+                            <h3><strong>Vive en</strong></h3>
+                            <p>Barquisimeto</p>
+                            <hr>
+                            <h3><strong>Sexo</strong></h3>
+                            <p><%= current_user.sexo %></p>
+                            <hr>
+                            <h3><strong>120</strong></h3>
+                            <p>Seguidores</p>
+                            <hr>
+                            <h3><strong>320</strong></h3>
+                            <p>Seguidos</p>
+                            <hr>
+<%= button_tag(:type => 'button', class: 'btn btn-success') do %>
+  <% link_to t('.editar_perfil'), edit_user_registration_path %>
+<% end %>                                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 col-sm-6 col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <span>
                         <h1 class="panel-title pull-left" style="font-size:30px;"> <%= current_user.nombre %> <small><%= current_user.apellido %></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="<%= current_user.nombre %> is sharing with you"></i></h1>
                         <div class="dropdown pull-right">
-                            <button class="btn btn-success" type="button"  aria-haspopup="true" aria-expanded="true">
-                                Publicar
-                                
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Público
+                                <span class="caret"></span>
                             </button>
-                            
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Canal</a></li>
+                                <li><a href="#"><i class="fa fa-fw fa-check" aria-hidden="true"></i> Público</a></li>
+                                <li><a href="#">Privado</a></li>
+                                
+                                
+                            </ul>
                         </div>
                     </span>
                     <br>                    
@@ -47,7 +84,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
                                     <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Reportar</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>                                    
+                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>                                   
                                     <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Ocultar</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Eliminar</a></li>
@@ -103,19 +140,18 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
-                                    <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignore</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Enable notifications for this post</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Reportar</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>                                    
+                                    <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Ocultar</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Delete</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Eliminar</a></li>
                                 </ul>
                             </div>
                         </div>
                     </span>
                     <hr>
                     <div class="post-content">
-                        <p>Sample post content with comments.</p>
+                        <p>Post de ejemplo para timeline privado</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
