@@ -3,7 +3,7 @@
   <ul class="nav nav-sidebar">
     <li class="<%= 'active' if params[:controller] == 'welcome' %>">
      <%= link_to welcome_index_path do %>
-      <i class="fa fa-home" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Inicio </span>
+      <i class="fa fa-home" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Timeline </span>
      <% end %>
     </li>
     <li class="<%= 'active' if params[:controller] == 'perfil' %>">
@@ -15,12 +15,7 @@
      <%= link_to posts_path do %>
       <i class="fa fa-th-large" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Canales</span>
      <% end %>
-    </li>
-    <li class="<%= 'active' if params[:controller] == 'posts' %>">
-     <%= link_to posts_path do %>
-      <i class="fa fa-users" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Personas </span>
-     <% end %>
-    </li> 
+    </li>   
     <% if current_user.email == 'pm@gmail.com' %>
     <li class="<%= 'active' if params[:controller] == 'areas' %>">
      <%= link_to areas_path do %>
