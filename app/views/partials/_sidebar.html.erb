@@ -16,7 +16,7 @@
       <i class="fa fa-th-large" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px;">Canales</span>
      <% end %>
     </li>
-    <% if current_page?(controller: 'chanel', action: 'index') %>   
+    <% if request.path == "/chanel/index" %>   
     <li class="<%= 'active' if params[:controller] == 'chanel' %>">
      <%= link_to chanel_index_path do %>
       <i class="fa fa-th-large " style="font-size: 15px; margin-left: 30px;" aria-hidden="true"> </i> <span class="collapse in hidden-xs" style="margin-left:10px; font-size: 15px;">Público</span>
