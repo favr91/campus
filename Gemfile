@@ -29,6 +29,8 @@ gem 'autoprefixer-rails'
 gem 'bootswatch-rails'
 gem 'faker'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use jquery as the JavaScript library
