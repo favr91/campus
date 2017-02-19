@@ -3,7 +3,8 @@
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
-                            <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                        <% if current_user.image.thumby.url.present?%>
+                          <%=  image_tag(current_user.image.avatar.url, class: 'img-responsive') %> <% end %>
                         </div>
                         <div class="media-body">
                             <hr>
@@ -24,7 +25,7 @@
                             <hr>
 <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
   <% link_to t('.editar_perfil'), edit_user_registration_path %>
-<% end %>                                                            
+<% end %>
                         </div>
                     </div>
                 </div>
@@ -44,16 +45,16 @@
                                 <li><a href="#">Canal</a></li>
                                 <li><a href="#"><i class="fa fa-fw fa-check" aria-hidden="true"></i> Público</a></li>
                                 <li><a href="#">Privado</a></li>
-                                
-                                
+
+
                             </ul>
                         </div>
                     </span>
-                    <br>                    
+                    <br>
                     <br><br>
                     <div class="media-body">
                             <textarea class="form-control" rows="3" placeholder="Comparte tus conocimientos..."></textarea>
-                    </div>                    
+                    </div>
                     <span class="pull-left">
                         <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i> Foto </a>
                         <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-file-video-o" aria-hidden="true"></i> Video </a>
@@ -63,15 +64,17 @@
                     </span>
                 </div>
             </div>
-            
-            
-           
+
+
+
             <!-- Sample post content with picture. -->
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="pull-left">
                         <a href="#">
-                            <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
+                            <% if current_user.image.thumby.url.present?%>
+                         <%=  image_tag(current_user.image.thumb.url, class: 'img-circle', style: 'margin-right:8px; margin-top:-5px;' ) %> <% end %>
+
                         </a>
                     </div>
                     <h4><a href="#" style="text-decoration:none;"><strong><%= current_user.nombre %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> Hace 45 minutos</i></a></small></small></h4>
@@ -84,7 +87,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
                                     <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Reportar</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>                                   
+                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>
                                     <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Ocultar</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Eliminar</a></li>
@@ -141,7 +144,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
                                     <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Reportar</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>                                    
+                                    <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignorar</a></li>
                                     <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Ocultar</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Eliminar</a></li>
@@ -242,4 +245,4 @@
                 </div>
             </div>
         </div>
- 
+

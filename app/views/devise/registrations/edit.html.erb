@@ -19,9 +19,13 @@
         <%= f.email_field :email, class: 'form-control' %>
       </div>
       <div class="form-group">
+            <%= f.label :imagen_de_perfil %>
+              <%= f.file_field :image %>
+          </div>
+      <div class="form-group">
         <%= f.label :descripción %>
         <%= f.text_area :descripcion, class: 'form-control' %>
-      </div>      
+      </div>
       <div class="form-group">
         <%= f.label :password %> <i>(<%= t('.sino_quieres_cambiarlo_dejalo_en_blanco', default: "Sino quieres cambiarlo dejalo en blanco") %>)</i>
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>

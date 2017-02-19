@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-fixed-top">  
+<nav class="navbar navbar-default navbar-fixed-top">
 
-  <div class="container">  
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 
@@ -16,8 +16,8 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  <% if user_signed_in? %>  
-      <form class="navbar-form navbar-left" role="search"> 
+  <% if user_signed_in? %>
+      <form class="navbar-form navbar-left" role="search">
       <div class="input-group">
           <input type="text" class="form-control barra-busqueda" placeholder="Buscar...">
           <span class="input-group-btn">
@@ -25,45 +25,49 @@
           </span>
       </div>
     </form>
-  <% end %>  
+  <% end %>
 
       <ul class="nav navbar-nav navbar-right">
-            
-            
+
 
           <% if user_signed_in? %>
             <li>
-             <a href="#" style="font-weight: bold;"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= current_user.nombre %></a>                     
+
+            <%= link_to perfil_index_path do %>
+            <% if current_user.image.thumby.url.present?%>
+             <%=  image_tag(current_user.image.thumby.url, class: 'img-circle', style: 'margin-right:8px; margin-top:-6px;' ) %><% end %> <strong><%= current_user.nombre %> </strong>
+            <% end %>
+
             </li>
            <li>
-           <%= link_to fa_icon("Cerrarsesion", text: "Cerrar Sesion", class: "fa-sign-out"), destroy_user_session_path, :method => :delete %>               
+           <%= link_to fa_icon("Cerrarsesion", text: "Cerrar Sesion", class: "fa-sign-out"), destroy_user_session_path, :method => :delete %>
           </li>
         <% else %>
-        <li>  
+        <li>
           <% unless current_page?(about_index_path) %>
-            <%= link_to fa_icon("Sobrenosotros", text: "Sobre Nosotros", class: "fa-info-circle"), about_index_path %>          
+            <%= link_to fa_icon("Sobrenosotros", text: "Sobre Nosotros", class: "fa-info-circle"), about_index_path %>
           <% end %>
-        </li>        
-        <% end %>  
+        </li>
+        <% end %>
 
         <%if user_signed_in? %>
     <li class="<%= 'active' if params[:controller] == 'welcome' %>, visible-xs">
      <%= link_to welcome_index_path do %>
       <i class="fa fa-home" aria-hidden="true"> </i> <span style="margin-left:10px;">Timeline </span>
      <% end %>
-    </li>    
+    </li>
     <li class="<%= 'active' if params[:controller] == 'channels'%>, visible-xs ">
      <%= link_to channels_path do %>
       <i class="fa fa-th-large" aria-hidden="true"> </i> <span style="margin-left:10px;">Canales</span>
      <% end %>
     </li>
-    <% if request.path == "/chanel/index" %>   
+    <% if request.path == "/chanel/index" %>
     <li class="<%= 'active' if params[:controller] == 'chanel' %>, visible-xs">
      <%= link_to chanel_index_path do %>
       <i class="fa fa-th-large " style="font-size: 15px; margin-left: 30px;" aria-hidden="true"> </i> <span style="margin-left:10px; font-size: 15px;">Público</span>
      <% end %>
-    </li> 
-    <% end %>  
+    </li>
+    <% end %>
 
     <% if current_user.email == 'pm@gmail.com' %>
       <li class="<%= 'active' if params[:controller] == 'areas' %>, visible-xs">
@@ -71,10 +75,10 @@
             <i class="fa fa-book" aria-hidden="true"></i> <span style="margin-left:10px;">Áreas de conocimiento</span>
           <% end %>
       </li>
-    <% end %>   
-<% end %> 
+    <% end %>
+<% end %>
 
-   
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

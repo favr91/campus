@@ -17,6 +17,10 @@
               <%= f.text_field :apellido, class: 'form-control' %>
           </div>
           <div class="form-group">
+            <%= f.label :imagen_de_perfil %>
+              <%= f.file_field :image %> 
+          </div>
+          <div class="form-group">
             <%= f.label :email %>
               <%= f.email_field :email, class: 'form-control' %>
           </div>
