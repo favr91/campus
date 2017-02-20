@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <%= f.label :imagen_de_perfil %>
-              <%= f.file_field :image %> 
+              <%= f.file_field :image %>
           </div>
           <div class="form-group">
             <%= f.label :email %>
@@ -28,7 +28,7 @@
             <%= f.label :sexo %>
               </br>
               <%= f.select "sexo", options_for_select([["Masculino"], ["Femenino"]]), {}, {required: 'true', class: 'form-control'} %>
-              
+
           </div>
           <div class="form-group">
             <%= f.label :descripción_personal %>
