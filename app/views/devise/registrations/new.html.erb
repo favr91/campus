@@ -9,6 +9,10 @@
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
           <div class="form-group">
+            <%= f.label :cedula %>
+              <%= f.text_field :nombre, autofocus: true, class: 'form-control', disabled: true %>
+          </div>
+          <div class="form-group">
             <%= f.label :nombre %>
               <%= f.text_field :nombre, autofocus: true, class: 'form-control' %>
           </div>
@@ -28,12 +32,26 @@
             <%= f.label :sexo %>
               </br>
               <%= f.select "sexo", options_for_select([["Masculino"], ["Femenino"]]), {}, {required: 'true', class: 'form-control'} %>
-
           </div>
           <div class="form-group">
             <%= f.label :descripción_personal %>
               <%= f.text_area :descripcion, :rows => 4, class: 'form-control' %>
           </div>
+
+<div class="form-group">
+      <label for="select" class=" control-label">Areas de Conocimiento</label>
+        <br>
+        <select multiple="" class="form-control">
+          <option>Tecnología</option>
+          <option>Salud</option>
+          <option>Matematica</option>
+          <option>Física</option>
+          <option>Estadística</option>
+        </select>
+
+    </div>
+
+
           <div class="form-group">
             <%= f.label :password %>
               <%= f.password_field :password, class: 'form-control' %>
