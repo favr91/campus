@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area: one
+  channel: one
+
+two:
+  area: two
+  channel: two

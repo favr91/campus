@@ -25,7 +25,7 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @channel = Channel.new(channel_params)
+    @channel = current_user.channels.new(channel_params)
 
     respond_to do |format|
       if @channel.save
@@ -70,6 +70,6 @@ class ChannelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def channel_params
-      params.require(:channel).permit(:nombre, :descripcion, :user_id)
+      params.require(:channel).permit(:nombre, :descripcion, :user_id, area_ids:[])
     end
 end

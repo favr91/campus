@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
   get 'chanel/index'
   get 'perfil/index'
   get 'about/index'
 
 
-  resources :comments
-  resources :posts
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+    end
+  end
   resources :channels
   resources :followers
   resources :followings

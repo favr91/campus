@@ -1,3 +1,9 @@
+   <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+ <div class="panel panel-default devise-bs">
+      <div class="panel-heading">
+       <h4>Crea un nuevo canal</h4>
+      </div>
+ <div class="panel-body">
 <%= form_for(channel) do |f| %>
   <% if channel.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +17,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :descripcion %>
-    <%= f.text_area :descripcion %>
+    <%= f.text_area :descripcion,  class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
+  <label for="select" class=" control-label">Areas de Conocimiento</label>
+         <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
+
+            <%= f.collection_check_boxes :area_ids, current_user.areas.all, :id, :nombre do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+            <% end %>
+
+          </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.crear', default: ' Crear'), class: 'btn btn-success btn-block' %>
+
   </div>
 <% end %>
+</div>
+</div>
+</div>
+</div>

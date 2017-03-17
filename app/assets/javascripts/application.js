@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require social-share-button
 //= require_tree .
 
      $(document).ready(function(){
@@ -38,3 +39,7 @@ $(document).ready(function() {
   });
 });
 
+$ ->
+  $('.comment-reply').click ->
+    $(this).closest('.comment').find('.reply-form').toggle()
+    return

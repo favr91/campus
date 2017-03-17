@@ -37,19 +37,16 @@
             <%= f.label :descripción_personal %>
               <%= f.text_area :descripcion, :rows => 4, class: 'form-control' %>
           </div>
+   <label for="select" class=" control-label">Areas de Conocimiento</label>
+          <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
 
-<div class="form-group">
-      <label for="select" class=" control-label">Areas de Conocimiento</label>
-        <br>
-        <select multiple="" class="form-control">
-          <option>Tecnología</option>
-          <option>Salud</option>
-          <option>Matematica</option>
-          <option>Física</option>
-          <option>Estadística</option>
-        </select>
-
-    </div>
+             <%= f.collection_check_boxes :area_ids, Area.all, :id, :nombre do |b| %>
+              <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+            <% end %>
+          </div>
 
 
           <div class="form-group">
@@ -60,11 +57,12 @@
             <%= f.label :confirma_tu_password %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
-          <%= f.submit t('.registrate', default: 'Regístrate'), class: 'btn btn-success btn-block' %>
-            <% end %>
+          <%= f.submit t('.publicar', default: 'Publicar'), class: 'btn btn-success' %>
       </div>
     </div>
     <div class="links-inicio">
       <%= render 'devise/shared/links' %>
     </div>
   </div>
+<% end %>
+

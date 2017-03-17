@@ -26,6 +26,18 @@
         <%= f.label :descripción %>
         <%= f.text_area :descripcion, class: 'form-control' %>
       </div>
+       <label for="select" class=" control-label">Areas de Conocimiento</label>
+         <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
+
+              <%= f.collection_check_boxes :area_ids, Area.all, :id, :nombre do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+
+          </div>
+
       <div class="form-group">
         <%= f.label :password %> <i>(<%= t('.sino_quieres_cambiarlo_dejalo_en_blanco', default: "Sino quieres cambiarlo dejalo en blanco") %>)</i>
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>

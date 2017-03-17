@@ -3,7 +3,9 @@
 @import "bootstrap";
 @import "devise_bootstrap_views";
 @import "font-awesome";
-// Bootstrap body padding for fixed navbar
+@import "bootswatch/flatly/bootswatch";
+@import "social-share-button";
+
 
 $fondo: #2c3e50; //color de fondo
 $success: #18bc9c; //color primario
@@ -12,15 +14,54 @@ body {
     padding-top: 25px;
 }
 
-// And finally bootswatch style itself
-@import "bootswatch/flatly/bootswatch";
+$size: 26px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+.comments-header {
+  border-bottom: 1px dotted gray;
+  margin-bottom: 10px;
+}
+
+.comments-container {
+  p {
+    margin-bottom: 0px;
+  }
+  .comment-nav {
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 10px;
+      font-weight: bold;
+      color: #888;
+    }
+  }
+}
+
+.reply-form {
+  display: none;
+}
+
+.comments-show {
+  margin-left: 25px;
+}
+
+
+
 textarea {
     resize: none;
     overflow-y: scroll;
 }
 
 .box {
-    
+
     height: 100%;
     background: $fondo;
     position: absolute;
@@ -30,7 +71,7 @@ textarea {
     position: fixed;
     bottom: 0;
     z-index: 1000;
-   
+
 }
 
 .box a {

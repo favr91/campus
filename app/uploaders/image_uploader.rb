@@ -36,20 +36,25 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :thumby do
     process :crop
-    process resize_to_fit: [30, 30]
+    resize_to_fill(30, 30)
   end
 
    version :thumb do
     process :crop
     resize_to_fill(50, 50)
-  end  
+  end
+
+   version :post_img do
+    process :crop
+    resize_to_fill(500, 500)
+  end
 
   version :avatar do
     process :crop
     resize_to_fill(200, 200)
-  end  
-  
-  
+  end
+
+
   def crop
   manipulate! do |img|
     img.crop "600x600+0+0"
