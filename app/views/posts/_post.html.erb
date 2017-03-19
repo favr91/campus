@@ -18,7 +18,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
 <li type="button" data-toggle="modal" data-target="#myupdatepost_<%= post.id%>"><i class="fa fa-pencil" style="margin-left:25px"></i><span style="margin-left:5px">Editar</span></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><%= link_to 'Eliminar', post, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta publicación?' } %> </li>
+                                    <li><%= link_to 'Eliminar', post, method: :delete, remote: true, data: { confirm: '¿Estás seguro que deseas eliminar esta publicación?' } %> </li>
                                 </ul>
                             </div>
 
