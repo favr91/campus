@@ -3,16 +3,23 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts
   has_many :channels
-  has_many :followers
-  has_many :followings
   has_many :knowledges
   has_many :areas, through: :knowledges
-  acts_as_follower
   acts_as_followable
+  acts_as_follower
+
 
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def follow(user_id)
+    following_relationships.create(following_id: user_id)
+  end
+
+  def unfollow(user_id)
+    following_relationships.find_by(following_id: user_id).destroy
+  end
 end

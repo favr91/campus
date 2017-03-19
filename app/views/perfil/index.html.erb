@@ -5,6 +5,7 @@
                 <div class="panel-body ">
                     <div class="media">
                         <div align="center">
+
                         <% if current_user.image.thumby.url.present?%>
                           <%=  image_tag(current_user.image.avatar.url, class: 'img-responsive') %> <% end %>
                         </div>
@@ -25,13 +26,22 @@
                             <h3><strong>320</strong></h3>
                             <p>Seguidos</p>
                             <hr>
-<%= button_tag(:type => 'button', class: 'btn btn-success') do %>
-  <% link_to t('.editar_perfil'), edit_user_registration_path %>
-<% end %>
-<hr>
-<%= button_tag(:type => 'button', class: 'btn btn-success') do %>
-  <% link_to t('.crear_canal'), new_channel_path %>
-<% end %>
+
+
+
+
+          <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
+            <% link_to t('.editar_perfil'), edit_user_registration_path %>
+          <% end %>
+      <hr>
+        <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
+          <% link_to t('.crear_canal'), new_channel_path %>
+        <% end %>
+
+
+
+
+
                         </div>
                     </div>
                 </div>

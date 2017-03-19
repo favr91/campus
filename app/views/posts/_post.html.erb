@@ -7,7 +7,7 @@
 
                         </a>
                     </div>
-                    <h4><a href="#" style="text-decoration:none;"><strong><%= post.user.nombre %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_ago_in_words(post.created_at) %></i></a></small></small></h4>
+                    <h4><a href="#" style="text-decoration:none;"><strong></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_ago_in_words(post.created_at) %></i></a></small></small></h4>
                     <span>
                         <div class="navbar-right">
                          <div class="dropdown">
@@ -18,7 +18,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
 <li type="button" data-toggle="modal" data-target="#myupdatepost_<%= post.id%>"><i class="fa fa-pencil" style="margin-left:25px"></i><span style="margin-left:5px">Editar</span></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><i class="fa fa-trash" style="margin-left:25px"><%= link_to 'Destroy', post, method: :delete, :data => {:confirm => '¿Estás seguro que deseas eliminar esta publicación?'}, remote: true%></i> </li>
+                                    <li><%= link_to 'Eliminar', post, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta publicación?' } %> </li>
                                 </ul>
                             </div>
 
@@ -27,7 +27,7 @@
                     </span>
                     <hr>
                     <div class="post-content">
-                        <%= post.contenido %>
+                       <p> <%= post.contenido %></p>
 
                         <% if post.image.present? %>
                         <div class="attachment">
@@ -39,9 +39,13 @@
                     <hr>
                     <div>
                         <div class="pull-right btn-group-xs">
-                    <%= link_to like_post_path(post.id), method: :put, remote: true, class: "btn btn-default" do %>
+
+
+                      <%= link_to like_post_path(post.id), method: :put, remote: true, class: "btn btn-default" do %>
                        <span class="glyphicon glyphicon-heart"></span> <%= post.get_upvotes.size %>
-                    <% end %>
+                       <% end %>
+
+
                             <span class="pull-right" style="margin-left: 8px;">
                        <%= social_share_button_tag(@post.id,'data-twitter-title' => 'Chequea mi publicación en Campus:') %>
                     </span>

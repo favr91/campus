@@ -43,7 +43,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :crop
     resize_to_fill(50, 50)
   end
-
+   version :channel_pic do
+    process :crop
+    resize_to_fill(242, 220)
+  end
    version :post_img do
     process :crop
     resize_to_fill(500, 500)

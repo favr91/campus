@@ -1,19 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @channel.nombre %>
-</p>
+
+        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3 ">
+<h1><%=@channel.nombre%></h1>
 
 <p>
-  <strong>Descripcion:</strong>
-  <%= @channel.descripcion %>
+  <strong>Creado por:</strong>
+  <%= @channel.user.nombre %> <%= @channel.user.apellido %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @channel.user %>
-</p>
+            <div class="panel panel-default" id="posts">
 
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+                <div class="panel-body">
+                     <%= form_for(@channel, remote: true) do |f| %>
+
+                    <span>
+                        <h1 class="panel-title pull-left" style="font-size:30px;"> <%= current_user.nombre %> <small><%= current_user.apellido %></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="<%= current_user.nombre %> is sharing with you"></i></h1>
+                        <div class="dropdown pull-right" type="button" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+
+                         <%= f.submit t('.publicar', default: 'Publicar'), class: 'btn btn-success' %>
+                        </div>
+
+                    </span>
+                    <br>
+                    <br><br>
+                    <div class="media-body">
+                           <div class="form-group">
+              <%= f.text_area :nombre, autofocus: true, class: 'form-control post_content',  rows: '4', placeholder: 'Comparte tus conocimientos...'  %>
+          </div>
+                    </div>
+                    <span class="pull-left">
+
+                   <%= f.file_field :image %>
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i> Foto </a>
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-file-video-o" aria-hidden="true"></i> Video </a>
+                    </span>
+                <% end %>
+                </div>
+
+            </div>
+            <div id="container_posts">
+
+            </div>
+            <center>
+
+            </center>
+        </div>
+
+
+
+
+<% if current_user.id == @channel.user.id %>
+  <%= link_to edit_channel_path(@channel), class: "btn btn-success btn-xs" do%>
+   <%= fa_icon "pencil", text: "Editar Canal" %>
+  <% end %>
+<% end %>
+

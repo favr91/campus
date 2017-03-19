@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-
   end
 
   # GET /posts/new
@@ -26,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def downvote
-     @post.downvote_by current_user
+     @post.downvote_from current_user
      redirect_to :back
   end
 
@@ -73,6 +72,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

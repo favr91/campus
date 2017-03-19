@@ -35,9 +35,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'social-share-button'
-gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'acts_as_commentable_with_threading'
 gem 'httparty', '~> 0.13.7'
+gem 'acts_as_follower'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
