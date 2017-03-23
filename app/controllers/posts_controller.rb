@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @new_comment = Comment.build_from(@post, current_user.id, "")
   end
 
   # GET /posts/1

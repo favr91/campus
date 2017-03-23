@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
 
   get 'follows/create'
-
   get 'follows/destroy'
-
   get 'user/create'
-
   get 'comments/create'
-
   get 'chanel/index'
   get 'perfil/index'
   get 'about/index'
-
 
   resources :posts do
     member do

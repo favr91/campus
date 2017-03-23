@@ -14,9 +14,6 @@
                             <h3><strong>Bio</strong></h3>
                             <p><%= current_user.descripcion %></p>
                             <hr>
-                            <h3><strong>Vive en</strong></h3>
-                            <p>Barquisimeto</p>
-                            <hr>
                             <h3><strong>Sexo</strong></h3>
                             <p><%= current_user.sexo %></p>
                             <hr>
@@ -26,22 +23,13 @@
                             <h3><strong>320</strong></h3>
                             <p>Seguidos</p>
                             <hr>
-
-
-
-
           <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
             <% link_to t('.editar_perfil'), edit_user_registration_path %>
           <% end %>
-      <hr>
+            <hr>
         <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
           <% link_to t('.crear_canal'), new_channel_path %>
         <% end %>
-
-
-
-
-
                         </div>
                     </div>
                 </div>

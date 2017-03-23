@@ -10,7 +10,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
           <div class="form-group">
             <%= f.label :cedula %>
-              <%= f.text_field :nombre, autofocus: true, class: 'form-control', disabled: true %>
+              <%= f.text_field :cedula, autofocus: true, class: 'form-control', id: "cedulaidentidad" %>
           </div>
           <div class="form-group">
             <%= f.label :nombre %>
@@ -47,8 +47,6 @@
               </div>
             <% end %>
           </div>
-
-
           <div class="form-group">
             <%= f.label :password %>
               <%= f.password_field :password, class: 'form-control' %>
@@ -66,3 +64,54 @@
   </div>
 <% end %>
 
+<script>
+ var num = <%=User.all.count%>;
+
+  $("#subscribe-form-submit").click(function()
+{
+      var bool = "a";
+      var cedula = $("#cedulaidentidad").val();
+
+      <%@json.each do |u|%>
+
+        if(cedula == "<%=u["cedula"]%>")
+        {
+
+          if(num == 0)
+          {
+              bool = "c";
+          }
+    else
+  {
+                   <% User.all.each do |a|%>
+                        <%if a.documentoidentidad == u["cedula"]%>
+                            bool = "b";
+                            <%break%>
+                        <%else%>
+                              bool = "c";
+                        <%end%>
+                   <%end%>
+         }
+
+        }
+
+      <%end%>
+
+      if(bool == "c")
+      {
+        alert("Puede registrarlo");
+      }
+    else if(bool == "b")
+      {
+        alert("Ya existe");
+        return false;
+      }
+    else if(bool == "a")
+    {
+       alert("No puede registrarlo");
+       return false;
+    }
+
+  });
+
+</script>
