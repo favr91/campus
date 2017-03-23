@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :channels
   resources :areas
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :user do
     member do
       get :followers

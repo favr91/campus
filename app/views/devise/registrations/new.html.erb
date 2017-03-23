@@ -55,7 +55,7 @@
             <%= f.label :confirma_tu_password %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
-          <%= f.submit t('.publicar', default: 'Publicar'), class: 'btn btn-success' %>
+          <%= f.submit t('.Registrar', default: 'Registrar'), class: 'btn btn-success' %>
       </div>
     </div>
     <div class="links-inicio">
@@ -65,14 +65,14 @@
 <% end %>
 
 <script>
- var num = <%=User.all.count%>;
+ var num = <%= User.all.count %>;
 
   $("#subscribe-form-submit").click(function()
 {
       var bool = "a";
       var cedula = $("#cedulaidentidad").val();
 
-      <%@json.each do |u|%>
+      <% @json.each do |u|%>
 
         if(cedula == "<%=u["cedula"]%>")
         {
@@ -84,7 +84,7 @@
     else
   {
                    <% User.all.each do |a|%>
-                        <%if a.documentoidentidad == u["cedula"]%>
+                        <%if a.cedula == u["cedula"]%>
                             bool = "b";
                             <%break%>
                         <%else%>
