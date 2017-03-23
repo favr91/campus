@@ -1,0 +1,89 @@
+
+<div class="col-xs-12 col-sm-8 col-md-2 col-sm-offset-4 col-md-offset-3 col-lg-offset-3">
+
+            <div class="panel panel-default">
+                <div class="panel-body ">
+                    <div class="media">
+                        <div align="center">
+
+                        <% if @user.image.thumby.url.present?%>
+                          <%=  image_tag(@user.image.avatar.url, class: 'img-responsive') %> <% end %>
+                        </div>
+                        <div class="media-body">
+                            <center><h3><%= @user.nombre %> <%= @user.apellido %></h3></center>
+                            <hr>
+                            <h3><strong>Intereses</strong></h3>
+                            <% @user.areas.each do |area| %>
+                              <ul>
+                                <li><%= area.nombre %></li>
+                              </ul>
+                            <% end %>
+                            <hr>
+                            <h3><strong>Bio</strong></h3>
+                            <p><%= @user.descripcion %></p>
+                            <hr>
+                            <h3><strong>120</strong></h3>
+                            <p>Seguidores</p>
+                            <hr>
+                            <h3><strong>320</strong></h3>
+                            <p>Seguidos</p>
+                           <% if is_current_user?(@user) %>
+                            <hr>
+                        <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                          <% link_to t('.editar_perfil'), edit_user_registration_path %>
+                        <% end %>
+                          <hr>
+                        <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                        <% link_to t('.crear_canal'), new_channel_path %>
+                        <% end %>
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-md-6 ">
+
+            <div class="panel panel-default" id="posts">
+                <% unless @posts.any? %>
+                <p> <center>¡El usuario <strong><%= @user.nombre %></strong> no ha hecho ninguna publicación!</center></p>
+                <% else %>
+                <div class="panel-body">
+                     <%= form_for(@post, remote: true) do |f| %>
+                    <span>
+                        <h1 class="panel-title pull-left" style="font-size:30px;"> <%= current_user.nombre %> <small><%= current_user.apellido %></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="<%= current_user.nombre %> is sharing with you"></i></h1>
+                        <div class="dropdown pull-right" type="button" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+
+                         <%= f.submit t('.publicar', default: 'Publicar'), class: 'btn btn-success' %>
+                        </div>
+                    </span>
+                    <br>
+                    <br><br>
+                    <div class="media-body">
+                           <div class="form-group">
+              <%= f.text_area :contenido, autofocus: true, class: 'form-control post_content',  rows: '4', placeholder: 'Comparte tus conocimientos...'  %>
+                          </div>
+                    </div>
+                    <span class="pull-left">
+
+                   <%= f.file_field :image %>
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i> Foto </a>
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-file-video-o" aria-hidden="true"></i> Video </a>
+                    </span>
+                <% end %>
+                </div>
+
+            </div>
+
+            <div id="container_posts">
+
+                <%= render @posts %>
+            </div>
+            <center>
+                <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Nuevos", next_label: "Viejos", inner_window: 1, outer_window: 0 %>
+            </center>
+            <% end -%>
+        </div>
+
+

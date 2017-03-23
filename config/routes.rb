@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :profiles
   get 'follows/create'
   get 'follows/destroy'
   get 'user/create'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
   get 'welcome/index'
-
+  get 'users/:id' => 'users#show'
 
 
 devise_scope :user do

@@ -8,7 +8,7 @@
 
                         </a>
                     </div>
-                    <h4><a href="#" style="text-decoration:none;"><strong><%= post.user.nombre %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_ago_in_words(post.created_at) %></i></a></small></small></h4>
+                    <h4><%= link_to post.user.nombre, controller: "users", action: "show", id: post.user.id %> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_ago_in_words(post.created_at) %></i></a></small></small></h4>
                     <span>
                         <div class="navbar-right">
                          <div class="dropdown">
