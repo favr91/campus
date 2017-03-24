@@ -1,0 +1,5 @@
+<% if @users.present? %>
+  <%= render @users %>
+<% else %>
+  <p>No hay usuarios que coincidan con las palabras <%= params[:search] %>.</p>
+<% end %>

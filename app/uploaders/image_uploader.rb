@@ -48,7 +48,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_fill(242, 220)
   end
    version :post_img do
-    process :crop
     resize_to_fill(500, 500)
   end
 

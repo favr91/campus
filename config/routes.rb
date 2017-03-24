@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
 
+
   resources :profiles
   get 'follows/create'
   get 'follows/destroy'
   get 'user/create'
-  get 'comments/create'
   get 'chanel/index'
   get 'perfil/index'
   get 'about/index'
 
-  resources :posts do
-    member do
-      put "like", to: "posts#upvote"
-      put "unlike", to: "posts#downvote"
-    end
-  end
+
   resources :channels
   resources :areas
   devise_for :users, controllers: { registrations: "users/registrations" }
@@ -25,7 +20,13 @@ Rails.application.routes.draw do
   end
   get 'welcome/index'
   get 'users/:id' => 'users#show'
-
+ resources :posts do
+    resources :comments
+    member do
+      put "like", to: "posts#upvote"
+      put "unlike", to: "posts#downvote"
+    end
+  end
 
 devise_scope :user do
   authenticated :user do

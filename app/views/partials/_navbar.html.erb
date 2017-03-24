@@ -19,12 +19,16 @@
   <% if user_signed_in? %>
       <form class="navbar-form navbar-left" role="search">
       <div class="input-group">
-          <input type="text" class="form-control barra-busqueda" placeholder="Buscar...">
-          <span class="input-group-btn">
-              <button class="btn btn-success" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </span>
+         <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Encuentra a más amigos...", class: 'form-control barra-busqueda' %>
+ <span class="input-group-btn">
+<%= submit_tag "Buscar", :name => nil, class: 'btn btn-success' %>
+</span>
+<% end %>
       </div>
+
     </form>
+
   <% end %>
 
       <ul class="nav navbar-nav navbar-right">

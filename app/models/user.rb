@@ -28,4 +28,10 @@ class User < ApplicationRecord
       return @no
 
     end
+
+    def self.search(search)
+      where("nombre LIKE ?", "%#{search}%")
+      where("apellido LIKE ?", "%#{search}%")
+    end
+
 end

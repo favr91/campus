@@ -10,26 +10,33 @@
                           <%=  image_tag(current_user.image.avatar.url, class: 'img-responsive') %> <% end %>
                         </div>
                         <div class="media-body">
+                            <center><h3><%= current_user.nombre %> <%= current_user.apellido %></h3></center>
+                            <hr>
+                            <h3><strong>Intereses</strong></h3>
+                            <% current_user.areas.each do |area| %>
+                              <ul>
+                                <li><%= area.nombre %></li>
+                              </ul>
+                            <% end %>
                             <hr>
                             <h3><strong>Bio</strong></h3>
                             <p><%= current_user.descripcion %></p>
-                            <hr>
-                            <h3><strong>Sexo</strong></h3>
-                            <p><%= current_user.sexo %></p>
                             <hr>
                             <h3><strong>120</strong></h3>
                             <p>Seguidores</p>
                             <hr>
                             <h3><strong>320</strong></h3>
                             <p>Seguidos</p>
+
                             <hr>
-          <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
-            <% link_to t('.editar_perfil'), edit_user_registration_path %>
-          <% end %>
-            <hr>
-        <%= button_tag(:type => 'button', class: 'btn btn-success') do %>
-          <% link_to t('.crear_canal'), new_channel_path %>
-        <% end %>
+                        <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                          <% link_to t('.editar_perfil'), edit_user_registration_path %>
+                        <% end %>
+                          <hr>
+                        <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                        <% link_to t('.crear_canal'), new_channel_path %>
+                        <% end %>
+
                         </div>
                     </div>
                 </div>
@@ -58,11 +65,10 @@
               <%= f.text_area :contenido, autofocus: true, class: 'form-control post_content',  rows: '4', placeholder: 'Comparte tus conocimientos...'  %>
           </div>
                     </div>
-                    <span class="pull-left">
+                    <span class="pull-left btn btn-xs btn-warning btn-file glyphicon glyphicon-picture">
 
                    <%= f.file_field :image %>
-                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i> Foto </a>
-                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-file-video-o" aria-hidden="true"></i> Video </a>
+
                     </span>
                 <% end %>
                 </div>

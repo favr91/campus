@@ -39,15 +39,5 @@ $(document).ready(function() {
   });
 });
 
-$ ->
-  $('.comment-reply').click ->
-    $(this).closest('.comment').find('.reply-form').toggle()
-    return
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})

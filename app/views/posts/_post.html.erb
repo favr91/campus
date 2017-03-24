@@ -11,6 +11,7 @@
                     <h4><%= link_to post.user.nombre, controller: "users", action: "show", id: post.user.id %> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_ago_in_words(post.created_at) %></i></a></small></small></h4>
                     <span>
                         <div class="navbar-right">
+                        <% if current_user.id == post.user.id %>
                          <div class="dropdown">
                                 <button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -25,16 +26,19 @@
                                    </li>
                                 </ul>
                             </div>
+                            <% end %>
                         </div>
                     </span>
                     <hr>
                     <div class="post-content">
-                       <p> <%= post.contenido %></p>
+
                         <% if post.image.present? %>
                         <div class="attachment">
-                          <%= image_tag post.image.thumb.url %>
+                          <center><%= image_tag post.image.post_img.url %></center>
                         </div>
                       <% end %>
+                      <br>
+                       <p> <%= post.contenido %></p>
 
                     </div>
                     <hr>
@@ -60,15 +64,17 @@
                             <a href="#">
                             <% if current_user.image.thumby.url.present?%>
                          <%=  image_tag(current_user.image.thumby.url, class: 'img-circle', style: 'margin-right:-5px; margin-left:3px; margin-top:6px' ) %> <% end %>
-
                             </a>
                         </div>
 
                         <div class="media-body">
-                            <textarea class="form-control" rows="1" placeholder="Comenta"></textarea>
+
+
+
                         </div>
                     </div>
                 </div>
+
             </div>
 
 <!--- MODAL -->
