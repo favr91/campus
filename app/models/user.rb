@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :knowledges
   has_one :profile
   has_many :areas, through: :knowledges
+  acts_as_commontator
   acts_as_followable
   acts_as_follower
 

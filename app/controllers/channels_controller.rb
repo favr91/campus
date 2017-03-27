@@ -5,13 +5,22 @@ class ChannelsController < ApplicationController
   # GET /channels
   # GET /channels.json
   def index
+
     @channels = Channel.all
-    @timelines = Timeline.all
+
+
   end
 
   # GET /channels/1
   # GET /channels/1.json
   def show
+
+    @post = Post.new
+    # @posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 7)
+    @posts = Post.all.where(:channel_id => @channel.id).order('created_at DESC')
+
+
+
   end
 
   # GET /channels/new

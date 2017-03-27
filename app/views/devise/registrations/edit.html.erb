@@ -1,61 +1,63 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5 col-sm-offset-4 col-md-offset-4">
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <div class="form-group">
-        <%= f.label :nombre %>
-        <%= f.text_field :nombre, autofocus: true, class: 'form-control' %>
-      </div>
-       <div class="form-group">
-        <%= f.label :apellido %>
-        <%= f.text_field :apellido, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-            <%= f.label :imagen_de_perfil %>
-              <%= f.file_field :image %>
-          </div>
-      <div class="form-group">
-        <%= f.label :descripción %>
-        <%= f.text_area :descripcion, class: 'form-control' %>
-      </div>
-       <label for="select" class=" control-label">Areas de Conocimiento</label>
-         <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
+    <div class="panel panel-default devise-bs">
+        <div class="panel-heading">
+            <h4><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h4>
+        </div>
+        <div class="panel-body">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <div class="form-group">
+                <%= f.label :nombre %>
+                <%= f.text_field :nombre, autofocus: true, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :apellido %>
+                <%= f.text_field :apellido, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :imagen_de_perfil %>
+                <%= f.file_field :image %>
+            </div>
+            <div class="form-group">
+                <%= f.label :descripción %>
+                <%= f.text_area :descripcion, class: 'form-control' %>
+            </div>
+            <label for="select" class=" control-label">Areas de Conocimiento</label>
+            <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
 
-              <%= f.collection_check_boxes :area_ids, Area.all, :id, :nombre do |b| %>
-    <div class="collection-check-box">
-      <%= b.check_box %>
-      <%= b.label %>
+                <%= f.collection_check_boxes :area_ids, Area.all, :id, :nombre do |b| %>
+                <div class="collection-check-box">
+                    <%= b.check_box %>
+                    <%= b.label %>
+                </div>
+                <% end %>
+
+            </div>
+
+            <div class="form-group">
+                <%= f.label :password %>
+                <i>(<%= t('.sino_quieres_cambiarlo_dejalo_en_blanco', default: "Sino quieres cambiarlo dejalo en blanco") %>)</i>
+                <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :confirma_tu_password %>
+                <%= f.password_field :password_confirmation, class: 'form-control'  %>
+            </div>
+            <div class="form-group">
+                <%= f.label :password_actual %>
+                <i>(<%= t('.necesitamos_tu-password_para_confirmacion', default: 'Necesitamos tu password para confirmación') %>)</i>
+                <%= f.password_field :current_password, class: 'form-control' %>
+            </div>
+            <%= f.submit t('.confirma_tus_cambios', default: 'Confirma tus cambios'), class: 'btn btn-success btn-block' %>
+            <% end %>
+        </div>
     </div>
-  <% end %>
-
-          </div>
-
-      <div class="form-group">
-        <%= f.label :password %> <i>(<%= t('.sino_quieres_cambiarlo_dejalo_en_blanco', default: "Sino quieres cambiarlo dejalo en blanco") %>)</i>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :confirma_tu_password %>
-        <%= f.password_field :password_confirmation, class: 'form-control'  %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_actual %> <i>(<%= t('.necesitamos_tu-password_para_confirmacion', default: 'Necesitamos tu password para confirmación') %>)</i>
-        <%= f.password_field :current_password, class: 'form-control' %>
-      </div>
-      <%= f.submit t('.confirma_tus_cambios', default: 'Confirma tus cambios'), class: 'btn btn-success btn-block' %>
-    <% end %>
-  </div>
-</div>
-<div  class="links-inicio">
-<p><%= link_to t('.cancela_mi_cuenta', default: 'Cancela mi cuenta'), registration_path(resource_name), data: { confirm: t('.estas_seguro', default: "¿Estás seguro?") }, method: :delete %></p>
-<%= link_to t('.atras', default: 'Atrás'), :back %>
-</div>
+    <div class="links-inicio">
+        <p><%= link_to t('.cancela_mi_cuenta', default: 'Cancela mi cuenta'), registration_path(resource_name), data: { confirm: t('.estas_seguro', default: "¿Estás seguro?") }, method: :delete %></p>
+        <%= link_to t('.atras', default: 'Atrás'), :back %>
+    </div>
 </div>

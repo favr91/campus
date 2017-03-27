@@ -38,17 +38,11 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_commentable_with_threading (2.0.1)
-      activerecord (>= 4.0)
-      activesupport (>= 4.0)
-      awesome_nested_set (>= 3.0)
     acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
     arel (7.1.4)
     autoprefixer-rails (6.7.2)
       execjs
-    awesome_nested_set (3.1.1)
-      activerecord (>= 4.0.0, < 5.1)
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -68,6 +62,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    commontator (4.11.1)
+      jquery-rails
+      rails (>= 3.1)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -201,7 +198,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_commentable_with_threading
   acts_as_follower
   acts_as_votable (~> 0.10.0)
   autoprefixer-rails
@@ -210,6 +206,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  commontator
   devise
   devise-bootstrap-views
   faker

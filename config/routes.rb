@@ -21,12 +21,13 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'users/:id' => 'users#show'
  resources :posts do
-    resources :comments
-    member do
+      member do
       put "like", to: "posts#upvote"
       put "unlike", to: "posts#downvote"
     end
   end
+  
+mount Commontator::Engine => '/commontator'
 
 devise_scope :user do
   authenticated :user do

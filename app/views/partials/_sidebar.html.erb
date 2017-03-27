@@ -1,53 +1,62 @@
 <div class="col-xs-1 col-md-2 collapse in hidden-xs">
-<div class="container-fluid">
-  <div class="box">
-    <div class="text-left">
-      <ul class="nav nav-sidebar">
-    <li class="<%= 'active' if params[:controller] == 'welcome' %>">
-     <%= link_to welcome_index_path do %>
-      <i class="fa fa-home" aria-hidden="true"> </i> <span style="margin-left:10px;">Timeline </span>
-     <% end %>
-    </li>
-    <li class="<%= 'active' if params[:controller] == 'perfil' %>">
-     <%= link_to perfil_index_path do %>
-      <i class="fa fa-user" aria-hidden="true"> </i> <span style="margin-left:10px;">Perfil </span>
-     <% end %>
-    </li>
-    <li class="<%= 'active' if params[:controller] == 'channels' %>">
-     <%= link_to channels_path do %>
-      <i class="fa fa-th-large" aria-hidden="true"> </i> <span style="margin-left:10px;">Canales</span>
-     <% end %>
-    </li>
-    <% if request.path == "/chanel/index" %>   
-    <li class="<%= 'active' if params[:controller] == 'chanel' %>">
-     <%= link_to chanel_index_path do %>
-      <i class="fa fa-square " style="font-size: 15px; margin-left: 30px;" aria-hidden="true"> </i> <span style="margin-left:10px; font-size: 15px;">Público</span>
-     <% end %>
-    </li> 
-    <% end %>  
-    <% if current_user.email == 'pm@gmail.com' %>
-      <li class="<%= 'active' if params[:controller] == 'areas' %>">
-          <%= link_to areas_path do %>
-            <i class="fa fa-book" aria-hidden="true"></i> <span style="margin-left:10px;">Áreas de conocimiento</span>
-          <% end %>
-      </li>
-    <% end %>     
-  </ul>  
-  <hr class="linea-hr2">
-  <ul class="nav nav-sidebar">
-      <li class="<%= 'active' if params[:controller] == 'posts' %>">
-      <%= link_to posts_path do %>
-        <i class="fa fa-life-ring" aria-hidden="true"> </i> <span style="margin-left:10px;">Ayuda</span> 
-      <% end %>
-      </li>
-      <li>
-      <%= link_to about_index_path do %>
-         <i class="fa fa-building-o" aria-hidden="true"> </i> <span style="margin-left:10px;">Sobre Nosotros</span>    
-      <% end %>
-      </li>
-      
-     </ul>
-      </div>
+    <div class="container-fluid">
+        <div class="box">
+            <div class="text-left">
+                <ul class="nav nav-sidebar">
+                    <li class="<%= 'active' if params[:controller] == 'welcome' %>">
+                        <%= link_to welcome_index_path do %>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Timeline
+                        </span>
+                        <% end %>
+                    </li>
+                    <li class="<%= 'active' if params[:controller] == 'perfil' %>">
+                        <%= link_to perfil_index_path do %>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Perfil
+                        </span>
+                        <% end %>
+                    </li>
+                    <li class="<%= 'active' if params[:controller] == 'channels' %>">
+                        <%= link_to channels_path do %>
+                        <i class="fa fa-th-large" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Canales</span>
+                        <% end %>
+                    </li>
+                    <% if request.path == "/chanel/index" %>
+                    <li class="<%= 'active' if params[:controller] == 'chanel' %>">
+                        <%= link_to chanel_index_path do %>
+                        <i class="fa fa-square " style="font-size: 15px; margin-left: 30px;" aria-hidden="true"></i>
+                        <span style="margin-left:10px; font-size: 15px;">Público</span>
+                        <% end %>
+                    </li>
+                    <% end %>
+                    <% if current_user.email == 'pm@gmail.com' %>
+                    <li class="<%= 'active' if params[:controller] == 'areas' %>">
+                        <%= link_to areas_path do %>
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Áreas de conocimiento</span>
+                        <% end %>
+                    </li>
+                    <% end %>
+                </ul>
+                <hr class="linea-hr2">
+                <ul class="nav nav-sidebar">
+                    <li class="<%= 'active' if params[:controller] == 'posts' %>">
+                        <%= link_to posts_path do %>
+                        <i class="fa fa-life-ring" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Ayuda</span>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to about_index_path do %>
+                        <i class="fa fa-building-o" aria-hidden="true"></i>
+                        <span style="margin-left:10px;">Sobre Nosotros</span>
+                        <% end %>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

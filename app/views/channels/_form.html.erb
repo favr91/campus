@@ -1,55 +1,56 @@
-   <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
- <div class="panel panel-default devise-bs">
-      <div class="panel-heading">
-       <h4>Crea un nuevo canal</h4>
-      </div>
- <div class="panel-body">
-<%= form_for(channel) do |f| %>
-  <% if channel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
+<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+    <div class="panel panel-default devise-bs">
+        <div class="panel-heading">
+            <h4>Crea un nuevo canal</h4>
+        </div>
+        <div class="panel-body">
+            <%= form_for(channel) do |f| %>
+            <% if channel.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(channel.errors.count, "error") %>
+                    prohibited this channel from being saved:</h2>
 
-      <ul>
-      <% channel.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion,  class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :imagen_de_cabecera %>
-    <%= f.file_field :image %>
-  </div>
-
-  <label for="select" class=" control-label">Areas de Conocimiento</label>
-         <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
-
-            <%= f.collection_check_boxes :area_ids, current_user.areas.all, :id, :nombre do |b| %>
-              <div class="collection-check-box">
-                <%= b.check_box %>
-                <%= b.label %>
-              </div>
+                <ul>
+                    <% channel.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
             <% end %>
 
-          </div>
+            <div class="form-group">
+                <%= f.label :nombre %>
+                <%= f.text_field :nombre, class: 'form-control' %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit t('.crear', default: ' Crear'), class: 'btn btn-success btn-block' %>
+            <div class="form-group">
+                <%= f.label :descripcion %>
+                <%= f.text_area :descripcion,  class: 'form-control' %>
+            </div>
 
-  </div>
-<% end %>
-</div>
-</div>
+            <div class="form-group">
+                <%= f.label :imagen_de_cabecera %>
+                <%= f.file_field :image %>
+            </div>
+
+            <label for="select" class=" control-label">Areas de Conocimiento</label>
+            <div class="form-group form-control" style="height: 120px; overflow-y: scroll;">
+
+                <%= f.collection_check_boxes :area_ids, current_user.areas.all, :id, :nombre do |b| %>
+                <div class="collection-check-box">
+                    <%= b.check_box %>
+                    <%= b.label %>
+                </div>
+                <% end %>
+
+            </div>
+
+            <div class="actions">
+                <%= f.submit t('.crear', default: ' Crear'), class: 'btn btn-success btn-block' %>
+
+            </div>
+            <% end %>
+        </div>
+    </div>
 </div>
 </div>

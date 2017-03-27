@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   acts_as_votable
+  acts_as_commontable
   has_many :comments
   belongs_to :user
   belongs_to :channel
