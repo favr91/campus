@@ -15,7 +15,7 @@ class User < ApplicationRecord
   acts_as_commontator
   acts_as_followable
   acts_as_follower
-
+  validates :cedula, :presence => true
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
