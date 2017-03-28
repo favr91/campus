@@ -30,21 +30,21 @@
                     <p><%= current_user.descripcion %></p>
                     <hr>
                     <h3>
-                        <strong>120</strong>
-                    </h3>
-                    <p>Seguidores</p>
-                    <hr>
-                    <h3>
-                        <strong>320</strong>
+                        <strong><%= current_user.friendships.count%></strong>
                     </h3>
                     <p>Seguidos</p>
+                    <hr>
+                    <h3>
+                        <strong><%= current_user.anti_friends.count%></strong>
+                    </h3>
+                    <p>Seguidores</p>
 
                     <hr>
-                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm btn-block') do %>
                     <% link_to t('.editar_perfil'), edit_user_registration_path %>
                     <% end %>
                     <hr>
-                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm btn-block') do %>
                     <% link_to t('.crear_canal'), new_channel_path %>
                     <% end %>
 
@@ -107,11 +107,18 @@
 
                   <small>
                       <small>
-                          <a href="#" style="text-decoration:none; color:grey;">
                               <i>
                                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                                   <%= time_ago_in_words(post.created_at) %></i>
-                          </a>
+
+                      </small>
+                      <small class="pull-right">
+                            <% unless post.channel_id.nil?%>
+                                  <i class="fa fa-square text-info" aria-hidden="true"></i>
+
+                                  <%= post.channel.nombre %>
+                                  <% end %>
+
                       </small>
                   </small>
               </h4>

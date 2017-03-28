@@ -17,11 +17,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_page?(channels_path)%>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
-                    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :search, params[:search], placeholder: "Encuentra a más amigos...", class: 'form-control barra-busqueda' %>
+                    <%= form_tag(channels_path, :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Buscar canales...", class: 'form-control barra-busqueda' %>
                     <span class="input-group-btn">
                         <%= submit_tag "Buscar", :name => nil, class: 'btn btn-success' %>
                     </span>

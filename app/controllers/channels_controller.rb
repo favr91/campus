@@ -6,8 +6,13 @@ class ChannelsController < ApplicationController
   # GET /channels.json
   def index
 
-    @channels = Channel.all
+    @channels = Channel.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 8)
 
+    if params[:search]
+      @channels = Channel.search(params[:search]).order("created_at DESC")
+    else
+      @channels = Channel.all.order('created_at DESC')
+    end
 
   end
 
@@ -17,9 +22,7 @@ class ChannelsController < ApplicationController
 
     @post = Post.new
     # @posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 7)
-    @posts = Post.all.where(:channel_id => @channel.id).order('created_at DESC')
-
-
+    @posts = Post.all.where(:channel_id => @channel.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
 
   end
 

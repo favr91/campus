@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :knowledges
   has_one :profile
   has_many :areas, through: :knowledges
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :anti_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :anti_friends, :through => :anti_friendships, :source => :user
   acts_as_commontator
   acts_as_followable
   acts_as_follower

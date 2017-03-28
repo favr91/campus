@@ -22,6 +22,7 @@
             <div class="media-body">
                 <div class="form-group">
                     <%= f.text_area :contenido, class: 'form-control post_content',  rows: '4', placeholder: 'Comparte tus conocimientos...'  %>
+                    <%= f.hidden_field :tipo_post , :value => 'priv' %>
                 </div>
             </div>
             <span class="pull-left btn btn-xs btn-warning btn-file glyphicon glyphicon-picture">
@@ -40,6 +41,7 @@
 
           <div class="panel-body">
               <div class="pull-left">
+
                   <a href="#">
                       <% if current_user.image.thumby.url.present?%>
                       <%=  image_tag(current_user.image.thumb.url, class: 'img-circle', style: 'margin-right:8px; margin-top:-5px;' ) %>

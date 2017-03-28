@@ -10,7 +10,7 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
             <div class="form-group">
                 <%= f.label :cedula %>
-                <%= f.text_field :cedula, autofocus: true, class: 'form-control', id: "cedulaidentidad" %>
+                <%= f.text_field :cedula, autofocus: true, class: 'form-control', :id => 'cedulaidentidad' %>
             </div>
             <div class="form-group">
                 <%= f.label :nombre %>
@@ -55,32 +55,33 @@
             <%= f.label :confirma_tu_password %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
-        <%= f.submit t('.Registrar', default: 'Registrar'), class: 'btn btn-success' %>
+        <%= f.submit t('.Registrar', default: 'Registrar'), class: 'btn btn-success btn-block', id: 'btnregistrar' %>
     </div>
 </div>
 <div class="links-inicio">
     <%= render 'devise/shared/links' %>
 </div>
 </div>
-<% end %>
 
 <script>
 var num = <%= User.all.count %>;
 
-$("#subscribe-form-submit").click(function () {
+$("#btnregistrar").click(function () {
     var bool = "a";
     var cedula = $("#cedulaidentidad").val();
 
     <% @json.each do |u|%>
 
-    if (cedula == "<%=u[" cedula "]%>") {
+    if (cedula == "<%=u["cedula"]%>") {
 
         if (num == 0) {
             bool = "c";
+
         } else {
             <% User.all.each do |a|%>
             <%if a.cedula == u["cedula"]%>
             bool = "b";
+
             <%break%>
             <%else%>
             bool = "c";
@@ -93,14 +94,18 @@ $("#subscribe-form-submit").click(function () {
 <%end%>
 
 if (bool == "c") {
-    alert("Puede registrarlo");
+    alert("¡Bienvenid@!");
 } else if (bool == "b") {
-    alert("Ya existe");
+    alert("El usuario ya se encuentra registrado en CAMPUS");
     return false;
 } else if (bool == "a") {
-    alert("No puede registrarlo");
+    alert("Tu cédula no se encuentra en nuestra base de datos de egresados");
     return false;
 }
 
 });
 </script>
+
+
+
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326221028) do
+ActiveRecord::Schema.define(version: 20170327235720) do
 
   create_table "Areas_Channels", id: false, force: :cascade do |t|
     t.integer "area_id",    null: false
@@ -104,6 +104,14 @@ ActiveRecord::Schema.define(version: 20170326221028) do
     t.datetime "updated_at"
     t.index ["followable_id", "followable_type"], name: "fk_followables"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "knowledges", force: :cascade do |t|

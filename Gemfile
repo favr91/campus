@@ -39,6 +39,7 @@ gem 'httparty', '~> 0.13.7'
 gem 'acts_as_follower'
 gem 'commontator'
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

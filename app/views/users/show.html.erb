@@ -4,6 +4,19 @@
         <div class="panel-body ">
             <div class="media">
                 <div align="center">
+                <% unless is_current_user?(@user) %>
+
+              <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm btn-block') do %>
+              <% link_to "Seguir", friendships_path(:friend_id => @user), :method => :post %>
+              <% end %>
+
+
+
+              <br>
+              <% end %>
+
+
+
 
                     <% if @user.image.thumby.url.present?%>
                     <%=  image_tag(@user.image.avatar.url, class: 'img-responsive') %>
@@ -30,21 +43,22 @@
                     <p><%= @user.descripcion %></p>
                     <hr>
                     <h3>
-                        <strong>120</strong>
-                    </h3>
-                    <p>Seguidores</p>
-                    <hr>
-                    <h3>
-                        <strong>320</strong>
+                        <strong><%= @user.friendships.count%></strong>
                     </h3>
                     <p>Seguidos</p>
+                    <hr>
+                    <h3>
+                        <strong><%= @user.anti_friends.count%></strong>
+                    </h3>
+                    <p>Seguidores</p>
+
                     <% if is_current_user?(@user) %>
                     <hr>
-                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm btn-block') do %>
                     <% link_to t('.editar_perfil'), edit_user_registration_path %>
                     <% end %>
                     <hr>
-                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm') do %>
+                    <%= button_tag(:type => 'button', class: 'btn btn-success btn-sm btn-block') do %>
                     <% link_to t('.crear_canal'), new_channel_path %>
                     <% end %>
                     <% end %>
@@ -57,6 +71,14 @@
 <div class="col-xs-12 col-sm-8 col-md-6 ">
 
     <div class="panel panel-default" id="aviso">
+        <% unless is_current_user?(@user) %>
+        <center>
+            <h4>Chequea los posts de
+                <strong><%= @user.nombre %>
+                    <%= @user.apellido %></strong>
+            </h4>
+        </center>
+        <% end %>
         <% unless @posts.any? %>
         <p>
             <center>¡El usuario
@@ -64,8 +86,9 @@
                 no ha hecho ninguna publicación!</center>
         </p>
     <% else %>
+        <% if is_current_user?(@user) %>
         <div class="panel-body">
-            <%= form_for(@post, remote: true) do |f| %>
+            <%= form_for(@post, remote: true, authenticity_token: true) do |f| %>
             <span>
                 <h1 class="panel-title pull-left" style="font-size:30px;">
                     <%= current_user.nombre %>
@@ -82,6 +105,7 @@
             <div class="media-body">
                 <div class="form-group">
                     <%= f.text_area :contenido, autofocus: true, class: 'form-control post_content',  rows: '4', placeholder: 'Comparte tus conocimientos...'  %>
+                    <%= f.hidden_field :tipo_post , :value => 'priv' %>
                 </div>
             </div>
             <span class="pull-left btn btn-xs btn-warning btn-file glyphicon glyphicon-picture">
@@ -90,16 +114,143 @@
 
             </span>
             <% end %>
+
         </div>
+        <% end %>
 
     </div>
 
     <div id="container_posts">
+        <% @posts.each do |post|%>
 
-        <%= render @posts %>
+        <div class="panel panel-default" id="post_<%= post.id %>">
+
+            <div class="panel-body">
+                <div class="pull-left">
+                    <a href="#">
+                        <% if current_user.image.thumby.url.present?%>
+                        <%=  image_tag(current_user.image.thumb.url, class: 'img-circle', style: 'margin-right:8px; margin-top:-5px;' ) %>
+                        <% end %>
+
+                    </a>
+                </div>
+                <h4><%= link_to post.user.nombre, controller: "users", action: "show", id: post.user.id %>
+
+                    <small>
+                        <small>
+                            <a href="#" style="text-decoration:none; color:grey;">
+                                <i>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    <%= time_ago_in_words(post.created_at) %></i>
+                            </a>
+                        </small>
+                    </small>
+                </h4>
+                <span>
+                    <div class="navbar-right">
+                        <% if current_user.id == post.user.id %>
+                        <div class="dropdown">
+                            <button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
+                                <li type="button" data-toggle="modal" data-target="#myupdatepost_<%= post.id%>">
+                                    <i class="fa fa-pencil" style="margin-left:25px"></i>
+                                    <span style="margin-left:5px">Editar</span>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <%= link_to post, method: :delete, remote: true, data: { confirm: '¿Estás seguro que deseas eliminar esta publicación?' } do %>
+                                    <%= fa_icon "trash", text: "Eliminar" %>
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </div>
+                        <% end %>
+                    </div>
+                </span>
+                <hr>
+                <div class="post-content">
+
+                    <% if post.image.present? %>
+                    <div class="attachment">
+                        <center><%= image_tag(post.image.post_img.url, class: 'img-responsive') %></center>
+
+                    </div>
+                    <% end %>
+                    <br>
+                    <p>
+                        <%= post.contenido %></p>
+
+                </div>
+                <hr>
+                <div>
+                    <div class="pull-right btn-group-xs">
+
+                        <%= link_to like_post_path(post.id), method: :put, remote: true, class: "btn btn-default" do %>
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <%= post.get_upvotes.size %>
+                        <% end %>
+
+                        <span class="pull-right" style="margin-left: 8px;">
+                            <%= social_share_button_tag(@post.id,'data-twitter-title' => 'Chequea mi publicación en Campus:') %>
+                        </span>
+                    </div>
+
+                    <br>
+                </div>
+                <hr>
+                <div class="media">
+                    <div class="pull-left">
+
+                        <a href="#">
+                            <% if current_user.image.thumby.url.present?%>
+                            <%=  image_tag(current_user.image.thumby.url, class: 'img-circle', style: 'margin-right:-5px; margin-left:3px; margin-top:6px' ) %>
+                            <% end %>
+                        </a>
+                    </div>
+
+                    <div class="media-body">
+                        <%= commontator_thread(post)%>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--- MODAL -->
+
+        <!-- Modal -->
+        <%= form_for(post, :method => :put, remote: true) do |f| %>
+        <div class="modal fade" id="myupdatepost_<%= post.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Editar publicación</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <%= f.text_area :contenido, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="myupdatebutton_<%= post.id %>" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                        <%= submit_tag "Guardar Cambios", class: "btn btn-success" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <% end %>
     </div>
     <center>
         <%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Nuevos", next_label: "Viejos", inner_window: 1, outer_window: 0 %>
     </center>
-    <% end -%>
+    <% end %>
 </div>

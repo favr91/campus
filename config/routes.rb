@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :friendships
   resources :profiles
   get 'follows/create'
   get 'follows/destroy'
